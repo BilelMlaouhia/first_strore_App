@@ -1,0 +1,22 @@
+<div class="container">
+
+    <form #f="ngForm" (ngSubmit)="Add_product(f) ">
+        <div class="form-group">
+          <label >Nom de Produit</label>
+          <input type="text" class="form-control" #prod_name="ngModel" ngModel name="prod_name" >
+        </div>
+        <div class="form-group">
+          <label >Prix de Produit</label>
+          <input type="text" class="form-control" #prix="ngModel" ngModel name="prix" >
+        </div> 
+        <br><br>
+        <div class="form-group">
+            <label >Ajouter une image</label>
+          <input type="text" class="form-control"  #add="ngModel" ngModel name="add" >
+         
+        </div>
+        <br> <img [src]="add.value" *ngIf="add!=null" > <br> <br> <br>
+        <button type="submit" class="btn btn-primary"> Save </button>
+      </form>
+
+</div>

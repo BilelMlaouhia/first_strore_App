@@ -1,0 +1,41 @@
+<br>
+<div class="conatiner">
+
+<div class="uk-position-center uk-overlay uk-overlay-default">
+
+  <br>
+    <form #f="ngForm" (ngSubmit)="getRegistred(f) ">
+       
+      <div class="uk-margin">
+          <div class="uk-inline">
+            <input type="text" #fullname="ngModel" ngModel name="fullname" placeholder="your full name?"
+             style="width: 100%;"  >  <br>
+            </div>
+          </div>
+             <div class="uk-margin">
+              <div class="uk-inline">
+              <span class="uk-form-icon uk-form-icon-flip"  uk-icon="icon: user "></span>
+              <input class="uk-input" type="text" class="form-control" #email="ngModel" ngModel 
+           name="email" style="width: 100%;">
+          </div>
+      </div>
+
+      <div class="uk-margin">
+          <div class="uk-inline">
+
+              <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
+              <input type="password" class="uk-input" type="text" class="form-control" #password="ngModel" ngModel
+              placeholder="Password" name="password" style="width: 100%;">
+          </div>
+      </div>
+      <textarea name="textarea" #textarea="ngModel" ngModel cols="30" rows="10" style="width: 100%;"></textarea>
+     
+      <br> <input type="text" #image="ngModel" ngModel name="image"  > 
+     <button class="btn btn-primary" (click)="onAddImg(f) " name="button" type="button" *ngIf="done"> Add Image </button>
+      <br><br> <img [src]="image.value" #img *ngIf="image!=null">
+    <br> <div class="alert alert-success" *ngIf="!done" >Image added succesfuly! </div>
+      <button type="submit" class="btn btn-success" style="width: 100%;" >Registre </button>
+      
+  </form>
+  </div>
+</div>

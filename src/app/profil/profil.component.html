@@ -1,0 +1,72 @@
+<div class="container">
+    <div *ngFor="let profile of profile_data" align="center">
+        <div *ngIf="current_user==profile.unique_id">
+    <div class="card" style="width: 18rem;">
+       <b><h3 class="card-title" align="center"> {{profile.full_name| uppercase }}</h3></b>
+        <div class="card-body">
+
+            <img class="card-img-top" [src]="profile.profile_image" >
+          
+          <p class="card-text">{{profile.description}} </p>
+          <div align="center">
+            <a  class="btn btn-danger">Delete Account</a> 
+              
+          <button type="button" class="btn btn-primary "
+           data-bs-toggle="modal" data-bs-target="#exampleModal" >update Profil </button>
+         <input type="file"  name="file" #file='ngModel' ngModel (change)="getUploadImage($event,profile.email) " *ngIf="autoriser" >
+         
+    
+          <div class="alert alert-success" *ngIf="percent==98">uploading done!</div>
+       
+         <button class="btn btn-warning" (click)="Autoriser() ">Updating photo</button>
+
+    <div >
+          
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" ><b align="center">Updating Profile Infos</b> </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      
+
+
+      <div class="modal-body">
+          <form #f="ngForm" (ngSubmit)="getUpdateProfil(f) " >
+            <div class="mb-3">
+                <b><h6 class="card-title" align="center" #email="ngModel" ngModel name="email" [(ngModel)]="profile.email" style="display: none;">e-mail: {{profile.email}}</h6></b>
+
+                <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                <input type="text" class="form-control" #full_name="ngModel" ngModel name="full_name" [(ngModel)]="profile.full_name" >
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Descriptions</label>
+                <textarea type="text" class="form-control" #description="ngModel" ngModel name="description"  [(ngModel)]="profile.description" style="width: 100%;" ></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">URL image</label>
+                <input type="text" class="form-control" #profile_image="ngModel" ngModel name="profile_image"  [(ngModel)]="profile.profile_image" >
+              </div>
+              <div class="alert alert-success" *ngIf="update_msg" >{{update_msg}} </div>
+          </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" (click)="getUpdateProfil(f) ">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="conatiner">
+    
+<br><br>
+<div class="uk-position-center uk-overlay uk-overlay-default">
+
+<h3 class="alert alert-success" style="width: 100%;"> This A Login Page </h3>
+  <form #f="ngForm" (ngSubmit)="getIn(f) ">
+  
+    <div class="uk-margin">
+        <div class="uk-inline">
+            <span class="uk-form-icon uk-form-icon-flip"  uk-icon="icon: user "></span>
+            <input class="uk-input" type="text" class="form-control" #email="ngModel" ngModel 
+         name="email">
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <div class="uk-inline">
+            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+            <input type="password" class="uk-input" type="text" class="form-control" #password="ngModel" ngModel
+            placeholder="Password" name="password">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" style="width: 100%;" >Login </button>
+    <a class="text-primary" routerLink="#" style="width: 100%;"> Forget Password?</a>
+</form>
+</div>
+</div>

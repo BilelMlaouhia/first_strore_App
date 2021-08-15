@@ -1,0 +1,14 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" routerLink="/home">Home</a>
+        <a routerLink="/products" class="navbar-brand"  > Tout les Produits</a>
+       <a routerLink="/myproduct" class="navbar-brand" *ngIf="isAuth" > Mes Produits</a>
+       <a routerLink="/profile" class="navbar-brand" *ngIf="isAuth" > Profile</a>
+       <a routerLink="/ajout_produit" class="navbar-brand" *ngIf="isAuth" > Ajouter un Produit</a>
+       <a routerLink="/registre" class="navbar-brand " *ngIf="!isAuth" > Registre</a>
+       <button routerLink="/login" class="btn btn-success " *ngIf="!isAuth "   >Login</button>
+       <button  class="navbar-brand text-danger " uk-icon="icon: sign-out " (click)="onSignOut() " *ngIf="isAuth"  >LogOut</button>
+       
+      </nav>
+</div>
+<br><br>
